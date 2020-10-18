@@ -1,0 +1,54 @@
+<div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <section class="foo">
+        <label>Name</label>
+        <input id="name" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="name"/>
+        <div *ngIf="submitted &&f.name.errors" class="invalid-feedback">
+            <div class="error" *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+        </section>
+
+        <section class="foo">
+        <label>Email</label>
+        <input id="email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"placeholder="XYZ@example.com"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div class="error" *ngIf="f.email.errors.required">Email is required</div>
+            <div class="error" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+        </section>
+
+        <section class="foo">
+        <label for="feedback">Feedback</label>
+                <br>
+                <input id="Great" type="radio" value="Great" name="feedback" formControlName="feedback">
+                <label for="Great">Great</label>
+                <br>
+                <input id="Okay" type="radio" value="Okay" name="feedback" formControlName="feedback">
+                <label for="Okay">Okay</label>
+                <br>
+                <input id="Not Good" type="radio" value="Not Good" name="feedback" formControlName="feedback">
+                <label for="Not Good">Not Good</label>
+        </section>
+
+        <section class="foo">
+        <label>Comments</label>
+                <input id="comment" type="text" formControlName="comment" class="form-control" placeholder="type a comment" />
+        </section>
+
+
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Submit</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+        </div>
+
+    </form>
+</div>
+
+<br>
+<section id="finalValue">
+<p id="feedback_name">Name : {{details.name}}</p>
+<p id="feedback_email">Email : {{details.email}}</p>
+<p id="feedback">Feedback : {{details.feedback}}</p>
+<p id="feedback_comment">Comment : {{details.comment}}</p>
+</section>

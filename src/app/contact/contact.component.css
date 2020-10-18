@@ -1,0 +1,11 @@
+h2{
+    text-align: center; 
+}
+
+#one{
+    float: left;
+}
+
+#two{
+    float: right;
+}
