@@ -46,11 +46,11 @@ export class FormComponent implements OnInit {
       document.getElementById("feedback_comment").innerHTML="Comment : "+ obj.comment;
     },
     error =>{
-      if(obj.name === '' && obj.email === ''){
+      if((obj.name === '' || obj.name === null) && (obj.email === '' || obj.email === null)){
         alert('Form Submission failed! \n Name and Email are required');
-      }else if(obj.name === ''){
+      }else if(obj.name === '' || obj.name === null){
         alert('Form Submission failed! \n Name is required');
-      }else if(obj.email === ''){
+      }else if(obj.email === '' || obj.email === null){
         alert('Form Submission failed! \n Email is required');
       }else{
         alert('Form Submission failed!');
@@ -75,6 +75,5 @@ export class FormComponent implements OnInit {
       
   }
 }
-
 
 
